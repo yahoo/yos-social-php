@@ -81,7 +81,7 @@ $GLOBAL_YAHOO_LOGGER_DEBUG_DESTINATION = "LOG";
 
 class YahooUtil {
   function current_url() {
-    return sprintf("https://%s%s",$_SERVER["HTTP_HOST"],$_SERVER["REQUEST_URI"]);
+    return sprintf(($_SERVER["HTTPS"]!="on"?"http":"https")."://%s%s",$_SERVER["HTTP_HOST"],$_SERVER["REQUEST_URI"]);
   }
 
     function verify_signature($consumer, $token=NULL, $oauth_signature) {
